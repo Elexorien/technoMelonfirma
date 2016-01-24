@@ -1,0 +1,21 @@
+{
+  "modListVersion":1,
+  "modList": [{
+    "modid": "technofirma",
+    "name": "Technofirma",
+    "description": "Mod that adds more compatibility for TerraFirmaCraft",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url" : "",
+    "updateUrl": "",
+    "authorList": ["FailMelon", "Elexorien"],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [  ],
+    "parent": "",
+    "requiredMods": ["terrafirmacraft"],
+    "dependencies": ["after:terrafirmacraft", "after:BuildCraft|Energy"],
+    "dependants": [  ],
+    "useDependencyInformation": "false"
+  }]
+}

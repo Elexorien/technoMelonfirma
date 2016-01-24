@@ -1,0 +1,61 @@
+﻿#en_US
+#This is the Main language configuration file
+#
+#If you want to color code the text then I recommend you visit http://www.minecraftwiki.net/wiki/Formatting_codes#Color_codes
+#To create the § symbol which is used for assigning a color to the following text press Alt + 21 on Windows. For other OSes, view the above link.
+#This file needs to be UTF-8 encoded to work with MC 1.7+
+
+#========
+#= Food =
+#========
+
+
+#== Items ==
+item.prospecting_focus.name=Wand Focus: Prospecting
+
+item.Thaumic Steel Axe.name=Thaumic Axe
+item.Thaumic Steel Axe Head.name=Thaumic Axe Head
+
+item.Thaumic Steel Shovel.name=Thaumic Shovel
+item.Thaumic Steel Shovel Head.name=Thaumic Shovel Head
+
+item.Thaumic Steel Sword.name=Thaumic Sword
+item.Thaumic Steel Sword Head.name=Thaumic Sword Head
+
+item.Thaumic Steel Hoe.name=Thaumic Hoe
+item.Thaumic Steel Hoe Head.name=Thaumic Hoe Head
+
+item.Thaumic Steel Pickaxe.name=Thaumic Pickaxe
+item.Thaumic Steel Pickaxe Head.name=Thaumic Pickaxe Head
+
+item.Thaumic Steel Ingot.name=Thaumic Steel Ingot
+
+item.Wooden Oil Bucket.name=Wooden Bucket (Oil)
+item.Wooden Fuel Bucket.name=Wooden Bucket (Fuel)
+
+#== GUI ==
+gui.plans.pro_focus=Prospector's Focus
+gui.plans.iron_cap=iron Cap
+gui.plans.copper_wand_cap=Copper Cap
+gui.plans.silver_wand_cap=Silver Cap
+gui.plans.gold_wand_cap=Gold Cap
+gui.plans.thaumiumsword=Thaumic Sword
+gui.plans.thaumiumaxe=Thaumic Axe
+gui.plans.thaumiumshovel=Thaumic Shovel
+gui.plans.thaumiumpickaxe=Thaumic Pickaxe
+gui.plans.thaumiumhoe=Thaumic Hoe
+gui.metal.ThaumicSteel=Thaumic Steel
+
+#== Tile Entities ==
+tile.Magic Anvil.name=Thaumic Anvil
+tile.TFOilLamp.Gold.name=Gold Oil Lamp
+tile.TFOilLamp.Platinum.name=Platinum Oil Lamp
+tile.TFOilLamp.RoseGold.name=Rose Gold Oil Lamp
+tile.TFOilLamp.Silver.name=Silver Oil Lamp
+tile.TFOilLamp.SterlingSilver.name=Sterling Silver Oil Lamp
+tile.TFOilLamp.WroughtIron.name=Wrought Iron Steel Oil Lamp
+
+tile.Amber.name=Amber
+tile.DarkOre.name=Infused Stone
+
+item.Thaumic Steel Unshaped.name=Thaumic Steel Unshaped
