@@ -1,10 +1,9 @@
 package technofirma.core;
 
 import cpw.mods.fml.common.*;
-import net.minecraftforge.fluids.FluidRegistry;
+import technofirma.handlers.ConfigurationHandler;
 import technofirma.events.AntiTFCEvents;
 import technofirma.events.EventHooks;
-import thaumcraft.api.ItemApi;
 
 import com.bioxx.tfc.Core.Recipes;
 import com.bioxx.tfc.Core.Metal.Alloy;
@@ -65,6 +64,9 @@ public class TechnofirmaCore
         foundMekanism = Loader.isModLoaded("Mekanism");
         foundThaumcraft = Loader.isModLoaded("Thaumcraft");
 
+		ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+		FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+
         proxy.RegisterGuiHandler();
 		
 		proxy.SetupNormalBlocks();
@@ -112,6 +114,9 @@ public class TechnofirmaCore
 			MetalRegistry.instance.addMetal(TechnoItems.ThaumicSteel, Alloy.EnumTier.TierIV);
 
 		}
+		//FarmingOverrides.init();
+
+
 	}
 			
 	@EventHandler
@@ -134,6 +139,8 @@ public class TechnofirmaCore
 		proxy.RegisterRenderers();
 		proxy.RegisterWailaMessages();
 		proxy.RegisterEvents();
+
+
 	}	
 	
 	@EventHandler

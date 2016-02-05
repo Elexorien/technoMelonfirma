@@ -1,6 +1,6 @@
 package technofirma.core;
 
-import net.minecraft.block.Block;
+import forestry.core.fluids.Fluids;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -18,6 +18,7 @@ import com.bioxx.tfc.api.Enums.RuleEnum;
 
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 import technofirma.blocks.BlockDarkOre;
 import technofirma.blocks.BlockLightOre;
 import technofirma.blocks.BlockTFIngotPile;
@@ -28,7 +29,7 @@ import technofirma.crafting.MagicPlanRecipe;
 import technofirma.devices.BlockMagicAnvil;
 import technofirma.events.EventHooks;
 import technofirma.events.ThaumcraftTreeFell;
-import technofirma.foci.ItemFocusProspecting;
+import technofirma.integration.Thaumcraft.foci.ItemFocusProspecting;
 import technofirma.handlers.GuiHandler;
 import technofirma.items.*;
 import technofirma.lamp.LampFluid;
@@ -95,10 +96,10 @@ public class CommonProxy
 
     public void SetupBCItems()
     {
-        Block blockOil = BuildCraftEnergy.blockOil;
-        Block blockFuel = BuildCraftEnergy.blockFuel;
-        TechnoItems.WoodenOilBucket = new ItemWoodenOilBucket(blockOil).setContainerItem(Items.bucket).setUnlocalizedName("Wooden Oil Bucket");
-        TechnoItems.WoodenFuelBucket = new ItemWoodenOilBucket(blockFuel).setContainerItem(Items.bucket).setUnlocalizedName("Wooden Fuel Bucket");
+        //Block blockOil = BuildCraftEnergy.blockOil;
+        //Block blockFuel = BuildCraftEnergy.blockFuel;
+        TechnoItems.WoodenOilBucket = new ItemWoodenFluidlBucket(BuildCraftEnergy.blockOil).SetIconTexture("technofirma:WoodenOilBucket").setContainerItem(Items.bucket).setUnlocalizedName("Wooden Oil Bucket");
+        TechnoItems.WoodenFuelBucket = new ItemWoodenFluidlBucket(BuildCraftEnergy.blockFuel).SetIconTexture("technofirma:WoodenFuelBucket").setContainerItem(Items.bucket).setUnlocalizedName("Wooden Fuel Bucket");
     }
 
     public void RegisterBCItems()
@@ -112,6 +113,14 @@ public class CommonProxy
     public void SetupForestryItems()
     {
      //Ethanol, Biomass, Glass, Honey, Ice, Juice, Seedoil, Short_Mead
+		TechnoItems.WoodenEthanolBucket = new ItemWoodenFluidlBucket(Fluids.ETHANOL.getBlock()).SetIconTexture("technofirma:WoodenEthanolBucket").setContainerItem(Items.bucket).setUnlocalizedName("Wooden Ethanol Bucket");
+		TechnoItems.WoodenBiomassBucket = new ItemWoodenFluidlBucket(Fluids.BIOMASS.getBlock()).SetIconTexture("technofirma:WoodenBiomassBucket").setContainerItem(Items.bucket).setUnlocalizedName("Wooden Biomass Bucket");
+		TechnoItems.WoodenGlassBucket = new ItemWoodenFluidlBucket(Fluids.GLASS.getBlock()).SetIconTexture("technofirma:WoodenGlassBucket").setContainerItem(Items.bucket).setUnlocalizedName("Wooden Glass Bucket");
+		TechnoItems.WoodenHoneyBucket = new ItemWoodenFluidlBucket(Fluids.HONEY.getBlock()).SetIconTexture("technofirma:WoodenHoneyBucket").setContainerItem(Items.bucket).setUnlocalizedName("Wooden Honey Bucket");
+		TechnoItems.WoodenIceBucket = new ItemWoodenFluidlBucket(Fluids.ICE.getBlock()).SetIconTexture("technofirma:WoodenIceBucket").setContainerItem(Items.bucket).setUnlocalizedName("Wooden Ice Bucket");
+		TechnoItems.WoodenJuiceBucket = new ItemWoodenFluidlBucket(Fluids.JUICE.getBlock()).SetIconTexture("technofirma:WoodenJuiceBucket").setContainerItem(Items.bucket).setUnlocalizedName("Wooden Juice Bucket");
+		TechnoItems.WoodenSeedOilBucket = new ItemWoodenFluidlBucket(Fluids.SEEDOIL.getBlock()).SetIconTexture("technofirma:WoodenSeedOilBucket").setContainerItem(Items.bucket).setUnlocalizedName("Wooden Seed Oil Bucket");
+		TechnoItems.WoodenShortMeadBucket = new ItemWoodenFluidlBucket(Fluids.SHORT_MEAD.getBlock()).SetIconTexture("technofirma:WoodenShortMeadBucket").setContainerItem(Items.bucket).setUnlocalizedName("Wooden Short Mead Bucket");
     }
 
     public void RegisterForestryItems()
@@ -124,14 +133,14 @@ public class CommonProxy
         GameRegistry.registerItem(TechnoItems.WoodenJuiceBucket, "WoodenJuiceBucket");
         GameRegistry.registerItem(TechnoItems.WoodenSeedOilBucket, "WoodenSeedOilBucket");
         GameRegistry.registerItem(TechnoItems.WoodenShortMeadBucket, "WoodenShortMeadBucket");
-        FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluid("ethanol"), new ItemStack(TechnoItems.WoodenEthanolBucket), new ItemStack(TFCItems.woodenBucketEmpty));
+        FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluid("bioethanol"), new ItemStack(TechnoItems.WoodenEthanolBucket), new ItemStack(TFCItems.woodenBucketEmpty));
         FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluid("biomass"), new ItemStack(TechnoItems.WoodenBiomassBucket), new ItemStack(TFCItems.woodenBucketEmpty));
         FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluid("glass"), new ItemStack(TechnoItems.WoodenGlassBucket), new ItemStack(TFCItems.woodenBucketEmpty));
-        FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluid("honey"), new ItemStack(TechnoItems.WoodenHoneyBucket), new ItemStack(TFCItems.woodenBucketEmpty));
+        FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluid("for.honey"), new ItemStack(TechnoItems.WoodenHoneyBucket), new ItemStack(TFCItems.woodenBucketEmpty));
         FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluid("ice"), new ItemStack(TechnoItems.WoodenIceBucket), new ItemStack(TFCItems.woodenBucketEmpty));
         FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluid("juice"), new ItemStack(TechnoItems.WoodenJuiceBucket), new ItemStack(TFCItems.woodenBucketEmpty));
         FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluid("seedoil"), new ItemStack(TechnoItems.WoodenSeedOilBucket), new ItemStack(TFCItems.woodenBucketEmpty));
-        FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluid("short_mead"), new ItemStack(TechnoItems.WoodenShortMeadBucket), new ItemStack(TFCItems.woodenBucketEmpty));
+        FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluid("short.mead"), new ItemStack(TechnoItems.WoodenShortMeadBucket), new ItemStack(TFCItems.woodenBucketEmpty));
     }
 
     public void SetupMekanismItems()
@@ -220,6 +229,7 @@ public class CommonProxy
 	{
 		// Register magic tools
 		GameRegistry.registerItem(TechnoItems.ThaumicSteelAxe, "ThaumicSteelAxe");
+		OreDictionary.registerOre("itemAxe", TechnoItems.ThaumicSteelAxe);
 		GameRegistry.registerItem(TechnoItems.ThaumicSteelShovel, "ThaumicSteelShovel");
 		GameRegistry.registerItem(TechnoItems.ThaumicSteelPickaxe, "ThaumicSteelPickage");
 		GameRegistry.registerItem(TechnoItems.ThaumicSteelHoe, "ThaumicSteelHoe");
