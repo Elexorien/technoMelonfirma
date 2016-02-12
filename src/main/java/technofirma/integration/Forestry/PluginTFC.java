@@ -27,7 +27,7 @@ public class PluginTFC extends ForestryPlugin
 
         @Override
         public String getFailMessage() {
-            return "TFC not found";
+            return "TerrafirmaCraft not found";
         }
 
         protected void registerRecipes() {

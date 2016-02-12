@@ -370,7 +370,7 @@ public class BlockTFOilLamp extends BlockTerraContainer
         double centerY = y + 0.5;
         double centerZ = z + 0.5;
 	    
-        if (meta != 0)
+        if (isLampLit(meta)
             world.spawnParticle("flame", centerX, centerY, centerZ, 0.0D, 0.0D, 0.0D);
     }
 
