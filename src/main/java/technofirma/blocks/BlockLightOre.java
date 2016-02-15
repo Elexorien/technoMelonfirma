@@ -36,14 +36,15 @@ public class BlockLightOre extends BlockOre2
     public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
     {
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
+        int meta = 6; //possible fix for excavation wand
         int count = quantityDropped(metadata, fortune, world.rand);
         for (int i = 0; i < count; i++)
         {
             ItemStack itemstack = null;
 
-            ItemStack thaumcraftitem = ItemApi.getItem("itemResource", metadata);
+            ItemStack thaumcraftitem = ItemApi.getItem("itemResource", meta);
             if (thaumcraftitem != null)
-                itemstack = new ItemStack(thaumcraftitem.getItem(), 1 + world.rand.nextInt(2), metadata);
+                itemstack = new ItemStack(thaumcraftitem.getItem(), 1 + world.rand.nextInt(2), meta);
 
             if (itemstack != null)
             {
